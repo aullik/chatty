@@ -1,4 +1,3 @@
-
 package chatty;
 
 import chatty.util.DateTime;

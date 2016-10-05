@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html>
-	<title>Chatty Release Information</title>
-        <link rel="stylesheet" type="text/css" href="style.css" />
-        <style type="text/css">
-            pre {
-                border-left: 1px solid #AAAAAA;
-                padding: 10px;
-                margin-top: 5px;
-                color: #222222;
-            }
-        </style>
+<title>Chatty Release Information</title>
+<link rel="stylesheet" type="text/css" href="style.css"/>
+<style type="text/css">
+    pre {
+        border-left: 1px solid #AAAAAA;
+        padding: 10px;
+        margin-top: 5px;
+        color: #222222;
+    }
+</style>
 <body>
-    <div id="backlink"><a href="help.html">To main help page</a></div>
-    <h1><a name="top">Release Information</a></h1>
-    
-    <p>
+<div id="backlink"><a href="help.html">To main help page</a></div>
+<h1><a name="top">Release Information</a></h1>
+
+<p>
     <a href="#0.8.4">0.8.4</a> |
     <a href="#0.8.3">0.8.3</a> |
     <a href="#0.8.2">0.8.2</a> |
@@ -36,18 +36,18 @@
     <a href="#0.5">0.5</a> |
     <a href="#0.4">0.4</a> |
     <a href="#0.3">0.3</a>
-    </p>
-    
-    <p>This page shows important information about new versions as well as the
+</p>
+
+<p>This page shows important information about new versions as well as the
     full list of changes.</p>
-    
-    <h2>
-        <a name="0.8.4">Version 0.8.4</a> <a name="latest">(This one!)</a> (2016-??-??)
-        <a href="#top" class="top">[back to top]</a>
-    </h2>
-    <p>As broadcaster or mod you can now view the actions of other mods in a
-        separate window via <code>Extra - Moderation&nbsp;Log</code> or enable mod
-        actions to appear as extra messages directly in chat (<code>Main - Settings - Messages</code>).</p>
+
+<h2>
+    <a name="0.8.4">Version 0.8.4</a> <a name="latest">(This one!)</a> (2016-??-??)
+    <a href="#top" class="top">[back to top]</a>
+</h2>
+<p>As broadcaster or mod you can now view the actions of other mods in a
+    separate window via <code>Extra - Moderation&nbsp;Log</code> or enable mod
+    actions to appear as extra messages directly in chat (<code>Main - Settings - Messages</code>).</p>
 <pre>
 - Added Emoji support
 - Added displaying of received Cheers/Bits (Cheer Badges/sending Cheers not yet)        
@@ -62,28 +62,28 @@
 - Fixed some dialogs not reopening even with the appropriate setting
 </pre>
 
-    <h2>
-        <a name="0.8.3">Version 0.8.3</a> (2016-06-28)
-        <a href="#top" class="top">[back to top]</a>
-    </h2>
-    <p>Twitch has added information on the length of timeouts, which Chatty will
-        now output by default behind deleted messages. Twitch Chat now also
-        supports reason messages for timeouts/bans, which will be shown in
-        Chatty only to the affected person as well as all mods.</p>
-    
-    <p>You can now follow people directly out of Chatty using the commands
-        <code>/follow</code> and <code>/unfollow</code> and via context menus
-        under <code>Miscellaneous</code>. If you try to follow someone you are
-        already following, it will show how long you are already following.</p>
-    
-    <p><em>Important:</em> To be able to follow/unfollow channels you first need
-        to request new login data, because this feature requires the
-        <code>Follow channels</code> access which Chatty didn't request before.</p>
-    
-    <p>This version also adds initial support for the new re-sub notifications
-        with attached messages.</p>
-    
-    <h3>Full Changelog</h3>
+<h2>
+    <a name="0.8.3">Version 0.8.3</a> (2016-06-28)
+    <a href="#top" class="top">[back to top]</a>
+</h2>
+<p>Twitch has added information on the length of timeouts, which Chatty will
+    now output by default behind deleted messages. Twitch Chat now also
+    supports reason messages for timeouts/bans, which will be shown in
+    Chatty only to the affected person as well as all mods.</p>
+
+<p>You can now follow people directly out of Chatty using the commands
+    <code>/follow</code> and <code>/unfollow</code> and via context menus
+    under <code>Miscellaneous</code>. If you try to follow someone you are
+    already following, it will show how long you are already following.</p>
+
+<p><em>Important:</em> To be able to follow/unfollow channels you first need
+    to request new login data, because this feature requires the
+    <code>Follow channels</code> access which Chatty didn't request before.</p>
+
+<p>This version also adds initial support for the new re-sub notifications
+    with attached messages.</p>
+
+<h3>Full Changelog</h3>
 <pre>
 Improvements
 ============
@@ -123,38 +123,41 @@ Bugfixes
 - Fixed not being able to join (and perform some other actions) through context
   menu, for channels that contain spaces in the display name
 </pre>
-    
-    <h2>
-        <a name="0.8.2">Version 0.8.2</a> (2016-04-26)
-        <a href="#top" class="top">[back to top]</a>
-    </h2>
-    <p>During March Twitch migrated Twitch Chat to new servers (Amazon AWS),
-        which you probably noticed due to some issues for some third-party
-        tools. This however also brought some improvements:</p>
-    
-    <ul>
-        <li>Twitch Chat now supports SSL on ports 6697 and 443
-            <ul>
-                <li>Chatty will automatically add these to the default ports if
-                    your port setting is still on the previous default
-                    (otherwise you might have to add them yourself).</li>
-            </ul>
-        </li>
-        <li>No separate Event Chat servers anymore
-            <ul>
-                <li>Access all channels, including of big events, in Chatty
-                    without having to change servers.</li>
-            </ul>
-        </li>
-        <li>Whispers (and Group Chat) got moved to AWS early April
-            <ul>
-                <li>No Whisper server configuration required anymore, just
-                    enable Whispers in the settings if you want to use them.</li>
-            </ul>
-        </li>
-    </ul>
-    
-    <h3>Full Changelog</h3>
+
+<h2>
+    <a name="0.8.2">Version 0.8.2</a> (2016-04-26)
+    <a href="#top" class="top">[back to top]</a>
+</h2>
+<p>During March Twitch migrated Twitch Chat to new servers (Amazon AWS),
+    which you probably noticed due to some issues for some third-party
+    tools. This however also brought some improvements:</p>
+
+<ul>
+    <li>Twitch Chat now supports SSL on ports 6697 and 443
+        <ul>
+            <li>Chatty will automatically add these to the default ports if
+                your port setting is still on the previous default
+                (otherwise you might have to add them yourself).
+            </li>
+        </ul>
+    </li>
+    <li>No separate Event Chat servers anymore
+        <ul>
+            <li>Access all channels, including of big events, in Chatty
+                without having to change servers.
+            </li>
+        </ul>
+    </li>
+    <li>Whispers (and Group Chat) got moved to AWS early April
+        <ul>
+            <li>No Whisper server configuration required anymore, just
+                enable Whispers in the settings if you want to use them.
+            </li>
+        </ul>
+    </li>
+</ul>
+
+<h3>Full Changelog</h3>
 <pre>
 Improvements
 ============
@@ -238,22 +241,24 @@ Bugfixes
 - Fixed tabs not changing correctly on System Look&amp;Feel
 - Fixed error on host notification due to moving Whispers to AWS
 </pre>
-    
-    <h2>
-        <a name="0.8.1">Version 0.8.1</a> (2015-08-10)
-        <a href="#top" class="top">[back to top]</a>
-    </h2>
-    <h3>Highlights / Important Information</h3>
-    <ul>
-        <li>If you want to use the <code>/w</code> (whisper) command and receive whispers in Chatty, read the
-            <a href="help-whisper.html">Whisper Help</a> (some configuration required).</li>
-        <li>Added feature to <a href="help.html#pausechat">pause scrolling</a> when moving the mouse over chat
-            (you have to enable it in the settings under <code>Chat</code>).</li>
-        <li>Added Tabs drag and drop reordering, more menu options for closing and more.</li>
-        <li>Readded FFZ Feature Friday support and improved it.</li>
-        <li>Show more stream and channel state information (like slowmode, submode, etc.).</li>
-    </ul>
-    <h3>Full Changelog</h3>
+
+<h2>
+    <a name="0.8.1">Version 0.8.1</a> (2015-08-10)
+    <a href="#top" class="top">[back to top]</a>
+</h2>
+<h3>Highlights / Important Information</h3>
+<ul>
+    <li>If you want to use the <code>/w</code> (whisper) command and receive whispers in Chatty, read the
+        <a href="help-whisper.html">Whisper Help</a> (some configuration required).
+    </li>
+    <li>Added feature to <a href="help.html#pausechat">pause scrolling</a> when moving the mouse over chat
+        (you have to enable it in the settings under <code>Chat</code>).
+    </li>
+    <li>Added Tabs drag and drop reordering, more menu options for closing and more.</li>
+    <li>Readded FFZ Feature Friday support and improved it.</li>
+    <li>Show more stream and channel state information (like slowmode, submode, etc.).</li>
+</ul>
+<h3>Full Changelog</h3>
 <pre>
 #### New features
 - Added experimental Whisper support (this will probably not be developed much
@@ -347,29 +352,33 @@ Bugfixes
 - Fixed off-by-one error for reconnection attempts
 - Fixed sounds on Linux (hopefully)
 </pre>
-    
-    <h2>
-        <a name="0.8">Version 0.8</a> (2015-06-09)
-        <a href="#top" class="top">[back to top]</a>
-    </h2>
-    
-    <h3>Highlights</h3>
-    <ul>
-        <li>Improved Emoticon Dialog: Shows all global emotes and a detail
-        view for emotes.</li>
-        <li>TAB Completion: Now supporting completion of emotes (<kbd>Shift-TAB</kbd>),
-            setting names (<kbd>TAB</kbd> when typing after a setting command)
-            and custom completion items which can be added in the <a href="help-settings.html#Completion">settings</a>.
-            Also added popup showing info during completion and changed behaviour
-            a bit accordingly.</li>
-        <li>Correctly capitalized names are now enabled by default, since support
-        for the new display name tag that Twitch Chat provides has been added.</li>
-        <li>Added ability to write the current stream time to a textfile, aiding
-            in making <a href="help.html#streamhighlights">Stream Highlights</a>
-            (either by entering a command or allowing your mods to run the command).</li>
-    </ul>
-    
-    <h3>Full Changelog</h3>
+
+<h2>
+    <a name="0.8">Version 0.8</a> (2015-06-09)
+    <a href="#top" class="top">[back to top]</a>
+</h2>
+
+<h3>Highlights</h3>
+<ul>
+    <li>Improved Emoticon Dialog: Shows all global emotes and a detail
+        view for emotes.
+    </li>
+    <li>TAB Completion: Now supporting completion of emotes (<kbd>Shift-TAB</kbd>),
+        setting names (<kbd>TAB</kbd> when typing after a setting command)
+        and custom completion items which can be added in the <a href="help-settings.html#Completion">settings</a>.
+        Also added popup showing info during completion and changed behaviour
+        a bit accordingly.
+    </li>
+    <li>Correctly capitalized names are now enabled by default, since support
+        for the new display name tag that Twitch Chat provides has been added.
+    </li>
+    <li>Added ability to write the current stream time to a textfile, aiding
+        in making <a href="help.html#streamhighlights">Stream Highlights</a>
+        (either by entering a command or allowing your mods to run the command).
+    </li>
+</ul>
+
+<h3>Full Changelog</h3>
 <pre>
 Core Changes:
 - Connection: Implemented IRCv3 tags/commands/membership support
@@ -483,27 +492,30 @@ Bugfixes:
 - Fixed and enabled workaround for some combining characters causing performance
   issues (replacing more than two combining characters in a row with ****)
 </pre>
-    
-    <h2>
-        <a name="0.7.3">Version 0.7.3</a> (2015-01-19)
-        <a href="#top" class="top">[back to top]</a>
-    </h2>
-    <h3>Highlights</h3>
-    <ul>
-        <li>You can now customize hotkeys (regular, application-wide and global
-            hotkeys) that you can set to perform certain predefined actions and
-            any command (Global Hotkeys Windows only).</li>
-        <li>Improved character display, allowing potentially more characters to
-        be displayed (depending on what fallback fonts are available).</li>
-    </ul>
-    
-    <h3>Important Information</h3>
-    <ul>
-        <li>If you were using a global commercial hotkey before, you will have
-        to redefine it when changing to this version (in the Settings - Hotkeys).</li>
-    </ul>
-    
-    <h3>Full Changelog</h3>
+
+<h2>
+    <a name="0.7.3">Version 0.7.3</a> (2015-01-19)
+    <a href="#top" class="top">[back to top]</a>
+</h2>
+<h3>Highlights</h3>
+<ul>
+    <li>You can now customize hotkeys (regular, application-wide and global
+        hotkeys) that you can set to perform certain predefined actions and
+        any command (Global Hotkeys Windows only).
+    </li>
+    <li>Improved character display, allowing potentially more characters to
+        be displayed (depending on what fallback fonts are available).
+    </li>
+</ul>
+
+<h3>Important Information</h3>
+<ul>
+    <li>If you were using a global commercial hotkey before, you will have
+        to redefine it when changing to this version (in the Settings - Hotkeys).
+    </li>
+</ul>
+
+<h3>Full Changelog</h3>
 <pre>
 New features:
 - Added customizable hotkeys feature allowing you to add/remove/change hotkeys
@@ -538,24 +550,27 @@ Bugfixes:
   that doesn't go well with the yellow background (Notification colors should be
   customizable eventually)
 </pre>
-    
-    <h2>
-        <a name="0.7.2">Version 0.7.2</a> (2014-12-14)
-        <a href="#top" class="top">[back to top]</a>
-    </h2>
-    <h3>Highlights</h3>
-    <ul>
-        <li>Timeout users (and more) using keyboard shortcuts. Use the
-            <a href="help.html#userselection">User Selection Mode</a>
-            (toggle with <kbd>Ctrl-Space</kbd>, then <kbd>W/S</kbd> and <kbd>E</kbd> to open
-            User Dialog) and the new keyboard shortcuts in the User Dialog for
-            quicker access to Timeout/Ban Buttons and Custom Commands you added.</li>
-        <li>Added more <a href="help-settings.html#Highlight">Highlight/Ignore prefixes</a>,
-            which for example enables you to create your own <a href="help-short_guides.html#localsubonly">local subscriber-only
-        mode</a>.</li>
-    </ul>
-    
-    <h3>Full Changelog</h3>
+
+<h2>
+    <a name="0.7.2">Version 0.7.2</a> (2014-12-14)
+    <a href="#top" class="top">[back to top]</a>
+</h2>
+<h3>Highlights</h3>
+<ul>
+    <li>Timeout users (and more) using keyboard shortcuts. Use the
+        <a href="help.html#userselection">User Selection Mode</a>
+        (toggle with <kbd>Ctrl-Space</kbd>, then <kbd>W/S</kbd> and <kbd>E</kbd> to open
+        User Dialog) and the new keyboard shortcuts in the User Dialog for
+        quicker access to Timeout/Ban Buttons and Custom Commands you added.
+    </li>
+    <li>Added more <a href="help-settings.html#Highlight">Highlight/Ignore prefixes</a>,
+        which for example enables you to create your own <a href="help-short_guides.html#localsubonly">local
+            subscriber-only
+            mode</a>.
+    </li>
+</ul>
+
+<h3>Full Changelog</h3>
 <pre>
 New features:
 - User Dialog Buttons (Timeout/Custom Commands) now support shortcuts, Ban and
@@ -607,31 +622,33 @@ Bugfixes:
 - Fixed layout problem in Settings Dialog when log path was too long
 - Use usercolor corrected for readability for colored /me messages
 </pre>
-    
-    
-    <h2>
-        <a name="0.7.1">Version 0.7.1</a> (2014-10-26)
-        <a href="#top" class="top">[back to top]</a>
-    </h2>
-    <h3>Highlights</h3>
-    <ul>
-        <li>You can now add your favorite Twitch Emotes to the new <code>Favorites</code>
+
+
+<h2>
+    <a name="0.7.1">Version 0.7.1</a> (2014-10-26)
+    <a href="#top" class="top">[back to top]</a>
+</h2>
+<h3>Highlights</h3>
+<ul>
+    <li>You can now add your favorite Twitch Emotes to the new <code>Favorites</code>
         page of the Emote Dialog. Right-click on the emote you want to add to
         open the context-menu and click on <code>Favorite</code>, then open the
         Emote Dialog (<code>Extra - Emoticons</code> or <code>Ctrl+E</code>) and
-        choose the <code>Favorites</code> page to view your favorites.</li>
-    </ul>
-    <h3>Important Information</h3>
-    <ul>
-        <li>The default location to write stream information to has been changed
-            to the <code>exported</code> subfolder of the settings directory (so
-            e.g. <code>C:\Users\name\.chatty\exported\</code>). If you are using
-            this feature e.g. by refering to the created textfiles in your
-            streaming software, you'll have to adjust the path to the textfile
-            there.</li>
-    </ul>
-    
-    <h3>Full Changelog</h3>
+        choose the <code>Favorites</code> page to view your favorites.
+    </li>
+</ul>
+<h3>Important Information</h3>
+<ul>
+    <li>The default location to write stream information to has been changed
+        to the <code>exported</code> subfolder of the settings directory (so
+        e.g. <code>C:\Users\name\.chatty\exported\</code>). If you are using
+        this feature e.g. by refering to the created textfiles in your
+        streaming software, you'll have to adjust the path to the textfile
+        there.
+    </li>
+</ul>
+
+<h3>Full Changelog</h3>
     
 <pre>
 New features:
@@ -680,27 +697,29 @@ Bugfixes:
   but the "xy just subscribed" message should now work for everyone again,
   because Twitch fixed it :)
 </pre>
-    
-    <h2>
-        <a name="0.7">Version 0.7</a> (2014-09-25)
-        <a href="#top" class="top">[back to top]</a>
-    </h2>
-    <h3>Highlights</h3>
-    <ul>
-        <li>Added <a href="help.html#emoticons">Emoticon Dialog</a> showing your Subscriber and Turbo emotes as
-        well as channel specific emotes.</li>
-        <li><a href="help.html#followers">Followers and Subscribers</a> lists
-            showing your most recent followers and subscribers (you probably
-            need to request new login data with the necessary access for the
-            subscriber list to work).</li>
-        <li>Improved <a href="help-livestreamer.html">Livestreamer Dialog and Help</a>.</li>
-    </ul>
-    <p><em>Just a reminder:</em> If you don't care about a correct userlist or joins/parts,
-        you may want to switch to Twitch Client Version 3 (<code>Settings - Advanced</code>),
-        which has a few advantages.
-        <a href="help-settings.html#Advanced-TC">More information..</a></p>
-    
-    <h3>Full Changelog</h3>
+
+<h2>
+    <a name="0.7">Version 0.7</a> (2014-09-25)
+    <a href="#top" class="top">[back to top]</a>
+</h2>
+<h3>Highlights</h3>
+<ul>
+    <li>Added <a href="help.html#emoticons">Emoticon Dialog</a> showing your Subscriber and Turbo emotes as
+        well as channel specific emotes.
+    </li>
+    <li><a href="help.html#followers">Followers and Subscribers</a> lists
+        showing your most recent followers and subscribers (you probably
+        need to request new login data with the necessary access for the
+        subscriber list to work).
+    </li>
+    <li>Improved <a href="help-livestreamer.html">Livestreamer Dialog and Help</a>.</li>
+</ul>
+<p><em>Just a reminder:</em> If you don't care about a correct userlist or joins/parts,
+    you may want to switch to Twitch Client Version 3 (<code>Settings - Advanced</code>),
+    which has a few advantages.
+    <a href="help-settings.html#Advanced-TC">More information..</a></p>
+
+<h3>Full Changelog</h3>
 <pre>
 New features:
 - Added Emoticon Dialog, showing emotes you paid for (Subscriber/Turbo) and
@@ -741,21 +760,22 @@ Bugfixes:
 - Fixed a possible bug with notifications
 - Now showing "&lt;number&gt; /host commands remaining this half hour." message
 </pre>
-    
-    
-    <h2>
-        <a name="0.6.7">Version 0.6.7</a> (2014-07-20)
-        <a href="#top" class="top">[back to top]</a>
-    </h2>
-    <h3>Highlights</h3>
-    <ul>
-        <li>Now supporting some of the <a href="http://nightdev.com/betterttv/">BetterTTV</a> emotes.</li>
-        <li>Changed Game Select Dialog to using just one single list for both
-            the Game Favorites and the search result (to use the available space
-            more efficiently).</li>
-    </ul>
-    
-    <h3>Full Changelog</h3>
+
+
+<h2>
+    <a name="0.6.7">Version 0.6.7</a> (2014-07-20)
+    <a href="#top" class="top">[back to top]</a>
+</h2>
+<h3>Highlights</h3>
+<ul>
+    <li>Now supporting some of the <a href="http://nightdev.com/betterttv/">BetterTTV</a> emotes.</li>
+    <li>Changed Game Select Dialog to using just one single list for both
+        the Game Favorites and the search result (to use the available space
+        more efficiently).
+    </li>
+</ul>
+
+<h3>Full Changelog</h3>
 <pre>
 New features:
 - Added support for some of the BetterTTV emotes
@@ -790,36 +810,40 @@ Bugfixes:
 - Improved API response parsing a little bit
 - Fixed context menus in Highlights/Ignored Messages dialogs
 </pre>
-    
-    
-    <h2>
-        <a name="0.6.6">Version 0.6.6</a> (2014-06-25)
-        <a href="#top" class="top">[back to top]</a>
-    </h2>
-    <h3>Highlights</h3>
-    <ul>
-        <li><a href="help.html#ignore">Ignore</a> chat messages by keyword,
-            username, addressbook category and channel, then choose whether to
-            completely hide them, show how many were ignored every 30s (if any)
-            or show which users where ignored. Ignored messages also get added
-            to a seperate window so you can check them if you want to.</li>
-        <li>Improved Update Notification.</li>
-        <li><a href="help-livestreamer.html">Livestreamer</a> context menu
-            quality selection customizable.</li>
-        <li>Improved <a href="help.html#emoticons">Emoticon</a> Context Menu (right-click on any emoticon image),
-            now allowing you to insert the emote code into your chat message by clicking the menu entry
-            showing the emote code (and added some more information and options
-            for subscriber emotes).</li>
-    </ul>
-    <h3>Important Information</h3>
-    <ul>
-        <li>Addressbook categories are now all lowercase. If you have any
+
+
+<h2>
+    <a name="0.6.6">Version 0.6.6</a> (2014-06-25)
+    <a href="#top" class="top">[back to top]</a>
+</h2>
+<h3>Highlights</h3>
+<ul>
+    <li><a href="help.html#ignore">Ignore</a> chat messages by keyword,
+        username, addressbook category and channel, then choose whether to
+        completely hide them, show how many were ignored every 30s (if any)
+        or show which users where ignored. Ignored messages also get added
+        to a seperate window so you can check them if you want to.
+    </li>
+    <li>Improved Update Notification.</li>
+    <li><a href="help-livestreamer.html">Livestreamer</a> context menu
+        quality selection customizable.
+    </li>
+    <li>Improved <a href="help.html#emoticons">Emoticon</a> Context Menu (right-click on any emoticon image),
+        now allowing you to insert the emote code into your chat message by clicking the menu entry
+        showing the emote code (and added some more information and options
+        for subscriber emotes).
+    </li>
+</ul>
+<h3>Important Information</h3>
+<ul>
+    <li>Addressbook categories are now all lowercase. If you have any
         categories that only use case to differentiate between them, this might
         be a problem for you. Otherwise it should make things a bit clearer and
-        easier.</li>
-    </ul>
-    
-    <h3>Full Changelog</h3>
+        easier.
+    </li>
+</ul>
+
+<h3>Full Changelog</h3>
 <pre>
 New features:
 - Ignore messages (similiar to the Highlight system, match messages by keywords,
@@ -856,22 +880,24 @@ Bugfixes:
 - Fixed display of "&lt;" in Notifications
 - Hopefully fixed possible display error
 </pre>
-    
-    <h2>
-        <a name="0.6.5">Version 0.6.5</a> (2014-06-14)
-        <a href="#top" class="top">[back to top]</a>
-    </h2>
-    <h3>Highlights</h3>
-    <ul>
-        <li>Reworked usericon (badges) system to be more flexible and allow for
-            <a href="help-settings.html#Emotes/Icons">Custom Usericons</a>.</li>
-        <li>Added <a href="help-settings.html#Commands">Custom Commands</a>,
-            allowing you to define aliases for anything you could also enter into
-            the inputbox manually (and also add those custom commands to the User/Channel
-            Context Menus and the User Dialog).</li>
-    </ul>
-    
-    <h3>Full Changelog</h3>
+
+<h2>
+    <a name="0.6.5">Version 0.6.5</a> (2014-06-14)
+    <a href="#top" class="top">[back to top]</a>
+</h2>
+<h3>Highlights</h3>
+<ul>
+    <li>Reworked usericon (badges) system to be more flexible and allow for
+        <a href="help-settings.html#Emotes/Icons">Custom Usericons</a>.
+    </li>
+    <li>Added <a href="help-settings.html#Commands">Custom Commands</a>,
+        allowing you to define aliases for anything you could also enter into
+        the inputbox manually (and also add those custom commands to the User/Channel
+        Context Menus and the User Dialog).
+    </li>
+</ul>
+
+<h3>Full Changelog</h3>
 <pre>
 New features:
 - Reworked usericon (badges) system, which also allows custom usericons,
@@ -911,19 +937,20 @@ Bugfixes:
 - Fixed some possible display bugs in Settings Dialog
 - Right-clicking on emotes now works on the whole emote
 </pre>
-    
-    <h2>
-        <a name="0.6.4">Version 0.6.4</a> (2014-05-26)
-        <a href="#top" class="top">[back to top]</a>
-    </h2>
-    <h3>Highlights</h3>
-    <ul>
-        <li>Added <a href="help-srl.html">SRL Race viewer</a>, which you can open in the <code>SRL</code>-menu.</li>
-        <li>Added <a href="help-livestreamer.html">Livestreamer</a> support, with a dialog (<code>Extra</code>-menu)
-        and optional context menu entry.</li>
-    </ul>
-    
-    <h3>Full Changelog</h3>
+
+<h2>
+    <a name="0.6.4">Version 0.6.4</a> (2014-05-26)
+    <a href="#top" class="top">[back to top]</a>
+</h2>
+<h3>Highlights</h3>
+<ul>
+    <li>Added <a href="help-srl.html">SRL Race viewer</a>, which you can open in the <code>SRL</code>-menu.</li>
+    <li>Added <a href="help-livestreamer.html">Livestreamer</a> support, with a dialog (<code>Extra</code>-menu)
+        and optional context menu entry.
+    </li>
+</ul>
+
+<h3>Full Changelog</h3>
 <pre>
 New features:
 - Added SpeedrunsLive (SRL) race viewer
@@ -950,21 +977,23 @@ Bugfixes:
 - Fixed /myemotes command
 - Fixed bug when joining channel out of popout
 </pre>
-    
-    <h2>
-        <a name="0.6.3">Version 0.6.3</a> (2014-05-15)
-        <a href="#top" class="top">[back to top]</a>
-    </h2>
-    <h3>Important Information</h3>
-    <ul>
-        <li>Right-click on a tab to not only <code>Close</code> but also
-            <code>Popout</code> the channel.</li>
-        <li>Using the commercial hotkey now will simulate a click on the
-            <code>30s</code> button <em>if</em> the Admin Dialog is open on the
-        Commercials tab.</li>
-    </ul>
-    
-    <h3>Full Changelog</h3>
+
+<h2>
+    <a name="0.6.3">Version 0.6.3</a> (2014-05-15)
+    <a href="#top" class="top">[back to top]</a>
+</h2>
+<h3>Important Information</h3>
+<ul>
+    <li>Right-click on a tab to not only <code>Close</code> but also
+        <code>Popout</code> the channel.
+    </li>
+    <li>Using the commercial hotkey now will simulate a click on the
+        <code>30s</code> button <em>if</em> the Admin Dialog is open on the
+        Commercials tab.
+    </li>
+</ul>
+
+<h3>Full Changelog</h3>
 <pre>
 New features:
 - Popout channels into their own window to be able to view them side-by-side
@@ -997,30 +1026,31 @@ Bugfixes:
 - Fixed bug when adding a usercolor (not correctly enabled Done button)
 - Fixed bug canceling the list item edit dialog (highlights/logging)
 </pre>
-    
+
 <h2>
     <a name="0.6.2">Version 0.6.2 (2014-04-20)</a>
     <a href="#top" class="top">[back to top]</a>
 </h2>
-    <h3>Important Information</h3>
-    <ul>
-        <li>The port setting has changed. If you have changed the port setting
+<h3>Important Information</h3>
+<ul>
+    <li>The port setting has changed. If you have changed the port setting
         to another value before, it will be reverted to the new default with
-        this update.</li>
-        <li>With the introduction of group chat, Twitch apparently removed the
+        this update.
+    </li>
+    <li>With the introduction of group chat, Twitch apparently removed the
         "xy just subscribed" messages from the chat version Chatty uses. There
         was also a new version introduced that still has those messages and is
         generally better (association of bans/info messages/subscribers to
         channels), but it lacks joins/parts, which means no joins/parts can be
         shown and the userlist will only contain those people who have said
-        something.<br />
-        <br />
+        something.<br/>
+        <br/>
         If you don't care about showing joins/parts and you don't care about
         a correct/complete userlist, then it may be beneficial for you to
         enable the <code>Chat Client Version 3</code> option in the Settings
         Dialog under <code>Advanced</code>. <a href="help-settings.html#Advanced-Other">More information..</a></li>
-    </ul>
-    <h3>Full Changelog</h3>
+</ul>
+<h3>Full Changelog</h3>
 <pre>
 New features:
 - Admin Dialog: Select previously used or favorited stream status (title/game)
@@ -1072,8 +1102,8 @@ Bugfixes:
 - Fixed userstats max length
 - Added scrolling to "Removed Streams.." list
 </pre>
-    
-    
+
+
 <h2>
     <a name="0.6">Version 0.6 (2014-02-13)</a>
     <a href="#top" class="top">[back to top]</a>
@@ -1081,9 +1111,11 @@ Bugfixes:
 <h3>Important Information</h3>
 <ul>
     <li>The sound volume values have been changed, you should readjust the
-        volumes when you use this feature.</li>
+        volumes when you use this feature.
+    </li>
     <li>Chatlog is disabled by default, enable it in the settings if you
-        want to use it.</li>
+        want to use it.
+    </li>
 </ul>
 <h3>Full Changelog</h3>
 <pre>
@@ -1158,12 +1190,14 @@ Bugfixes:
     <li>With Version 0.5, Chatty can notify you about streams you follow and
         show a list of them. You have to request
         new login data containing <code>&lt;Read user info&gt;</code> access to
-        be able to use that. Go to 
+        be able to use that. Go to
         <code>&lt;Main - Connect - Configure login..&gt;</code>, remove the
-        login and request it again.</li>
+        login and request it again.
+    </li>
     <li>You can enable/disable this feature under
         <code>&lt;Main - Settings - Notifications&gt;</code> if you have the
-        necessary access.</li>
+        necessary access.
+    </li>
 </ul>
 <h3>Full Changelog</h3>
 <pre>

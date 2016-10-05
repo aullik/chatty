@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
-	<title>Chatty Help - Troubleshooting</title>
-        <link rel="stylesheet" type="text/css" href="style.css" />
+<title>Chatty Help - Troubleshooting</title>
+<link rel="stylesheet" type="text/css" href="style.css"/>
 <body>
 
 <p>Some documentation of prior or current issues for reference.</p>
@@ -42,8 +42,8 @@ j  javax.swing.ToolTipManager.getDrawingGC(Ljava/awt/Point;)Ljava/awt/GraphicsCo
 
 <h3>Solution/Workaround</h3>
 <p>Seems to have to do with the graphics driver. Reinstalling/updating the graphics driver may
-help or using the following commandline parameter, which should disable the calls to the library
-that cause the error:</p>
+    help or using the following commandline parameter, which should disable the calls to the library
+    that cause the error:</p>
 
 <p><code>-Dsun.awt.nopixfmt=true</code></p>
 
@@ -54,14 +54,16 @@ that cause the error:</p>
 
 <h3>Links</h3>
 <ul>
-    <li><a href="http://obsproject.com/forum/threads/chatty.14149/#post-81264">http://obsproject.com/forum/threads/chatty.14149/#post-81264</a> (Chatty thread)</li>
-    <li><a href="http://www.oxygenxml.com/forum/topic10290.html">http://www.oxygenxml.com/forum/topic10290.html</a> (Crashes of another program and workaround)</li>
-    <li><a href="http://bugs.java.com/bugdatabase/view_bug.do?bug_id=6477756">http://bugs.java.com/bugdatabase/view_bug.do?bug_id=6477756</a> (Related Bug)</li>
+    <li><a href="http://obsproject.com/forum/threads/chatty.14149/#post-81264">http://obsproject.com/forum/threads/chatty.14149/#post-81264</a>
+        (Chatty thread)
+    </li>
+    <li><a href="http://www.oxygenxml.com/forum/topic10290.html">http://www.oxygenxml.com/forum/topic10290.html</a>
+        (Crashes of another program and workaround)
+    </li>
+    <li><a href="http://bugs.java.com/bugdatabase/view_bug.do?bug_id=6477756">http://bugs.java.com/bugdatabase/view_bug.do?bug_id=6477756</a>
+        (Related Bug)
+    </li>
 </ul>
- 
- 
- 
-
 
 
 <h2>Random Errors: Using Calibri Font</h2>
@@ -123,31 +125,35 @@ java.lang.ArrayIndexOutOfBoundsException: 0
 
 <h3>Solution/Workaround</h3>
 <p>Hopefully this will be fixed in future Java updates, but for now just don't
-use a Calibri font.</p>
+    use a Calibri font.</p>
 
 <h3>Links</h3>
 
 <ul>
-    <li><a href="http://stackoverflow.com/questions/16331075/error-generating-jasperreport-in-development-mode">http://stackoverflow.com/questions/16331075/error-generating-jasperreport-in-development-mode</a></li>
-    <li><a href="https://community.oracle.com/message/11119052#11119052">https://community.oracle.com/message/11119052#11119052</a></li>
+    <li><a href="http://stackoverflow.com/questions/16331075/error-generating-jasperreport-in-development-mode">http://stackoverflow.com/questions/16331075/error-generating-jasperreport-in-development-mode</a>
+    </li>
+    <li><a href="https://community.oracle.com/message/11119052#11119052">https://community.oracle.com/message/11119052#11119052</a>
+    </li>
 </ul>
 
 
 <h2>Twitch Emotes appearing wrong on Retina Displays</h2>
 <p>Twitch Emoticons appear wrong when Chatty is displayed on a Retina display.
-Instead of the Emoticon images, the 404 image the Twitch CDN redirects to is
-shown.
+    Instead of the Emoticon images, the 404 image the Twitch CDN redirects to is
+    shown.
 
 <p>Apparently in newer Java versions <code>Toolkit.getImage()</code> tries to find a higher
-resolution image by adding @2 to the file name, which the Twitch CDN actually
-responds to by redirecting to an error image, which is then displayed.</p>
+    resolution image by adding @2 to the file name, which the Twitch CDN actually
+    responds to by redirecting to an error image, which is then displayed.</p>
 
 <h3>Solution/Workaround</h3>
 <p>Use <code>Toolkit.createImage()</code> and create an <code>ImageIcon</code> with the created image.</p>
 
 <h3>Links</h3>
 <ul>
-    <li><a href="https://bugs.openjdk.java.net/browse/JDK-8011059">https://bugs.openjdk.java.net/browse/JDK-8011059</a> (OpenJDK Issue Page about this behaviour)</li>
+    <li><a href="https://bugs.openjdk.java.net/browse/JDK-8011059">https://bugs.openjdk.java.net/browse/JDK-8011059</a>
+        (OpenJDK Issue Page about this behaviour)
+    </li>
 </ul>
 
 </body>

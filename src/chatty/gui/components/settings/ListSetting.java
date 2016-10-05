@@ -1,14 +1,14 @@
-
 package chatty.gui.components.settings;
 
 import java.util.List;
 
 /**
- *
- * @author tduva
  * @param <T>
+ * @author tduva
  */
 public interface ListSetting<T> {
-    public List<T> getSettingValue();
-    public void setSettingValue(List<T> value);
+
+   public List<T> getSettingValue();
+
+   public void setSettingValue(List<T> value);
 }

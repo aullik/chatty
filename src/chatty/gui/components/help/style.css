@@ -6,6 +6,7 @@ body {
     padding: 10px;
     margin: 0;
 }
+
 h1 {
     margin: 4px 0 5px 0;
     font-size: 1.2em;
@@ -13,38 +14,47 @@ h1 {
     padding: 3px;
     border-bottom: 1px solid #AAAAAA;
 }
+
 h2 {
     margin: 14px 0 0 0;
     font-size: 1.1em;
     border-bottom: 1px solid #AAAAAA;
     padding-bottom: 2px;
 }
+
 h3 {
     font-size: 1em;
     margin: 10px 0 0 0;
     padding: 0;
 }
+
 li ul {
-    margin-top:1px;
-    margin-bottom:3px;
+    margin-top: 1px;
+    margin-bottom: 3px;
 }
+
 li {
     font-size: 1em;
     margin-top: 2px;
 }
+
 .sub {
     list-style-type: none;
     margin-top: 0;
 }
+
 .top {
     font-size: 0.75em;
 }
+
 code {
     background-color: #EEEEEE;
 }
+
 cite {
     background-color: #EEEEEE;
 }
+
 #backlink {
     margin: 0 0 10px 0;
 }
@@ -57,40 +67,50 @@ table.settings {
     border-collapse: collapse;
     margin-top: 10px;
 }
+
 table.settings td {
     padding: 3px;
     margin: 0;
     border: 1px solid #DDDDDD;
 }
+
 table.settings th {
     padding: 0;
     margin: 0;
     border-bottom: 1px solid #000;
 }
+
 .setting {
     font-family: monospace;
 }
+
 .settingExclusive {
     background-color: #EEEEEE;
 }
+
 .settingNoCommandEdit {
     color: #999999;
 }
+
 table.versionCompareTable {
     border-collapse: collapse;
 }
+
 .versionCompareTable td {
     padding: 2px;
     margin: 0;
 }
+
 table.loginlinks {
     border-collapse: collapse;
 }
+
 .loginlinks td {
     padding: 2px;
     border: 1px solid #DDDDDD;
     text-align: center;
 }
+
 .loginlinks th {
     padding: 2px;
 }
@@ -111,20 +131,23 @@ table.files {
     padding: 7px;
     font-style: italic;
 }
+
 .moreInfo a {
     font-weight: bold;
     font-style: normal;
 }
+
 .paragraphs dd {
     padding-bottom: 4px;
-/*    padding: 0 0 0 16px;
-    background-image: url(go-next.png);
-    background-repeat: no-repeat;*/
+    /*    padding: 0 0 0 16px;
+        background-image: url(go-next.png);
+        background-repeat: no-repeat;*/
 }
 
 .defList {
     margin-left: 20px;
 }
+
 .defList dt {
     margin-top: 5px;
 }
@@ -133,6 +156,7 @@ table.files {
     margin-left: 20px;
     margin-top: 10px;
 }
+
 .dl-settings dt {
     font-weight: bold;
     margin-top: 3px;
