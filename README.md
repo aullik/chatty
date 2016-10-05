@@ -1,6 +1,13 @@
 Chatty
 ======
 
+
+
+    This is a fork from chatty/chatty, all the original work goes to the original author tduva. This is my version of Chatty with individual changes which probably will never be in the upstream master branch due to several reasons. I will try to keep this up-to-date with the upstream branch as much as possible.
+
+    Just one more thing you should know about my version: there is no update check! You need to check back regularly here or watch the repository for the latest changes. When I'm more used to network development, I will try to implement a update checker in the future.
+
+
 Chatty is a Twitch Chat Client for Desktop written in Java featuring many
 Twitch specific features.
 
