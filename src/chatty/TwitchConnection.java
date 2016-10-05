@@ -1,5 +1,6 @@
 package chatty;
 
+import chatty.util.api.usericons.UsericonManager;
 import chatty.ChannelStateManager.ChannelStateListener;
 import chatty.util.BotNameManager;
 import chatty.util.StringUtil;
@@ -829,7 +830,8 @@ public class TwitchConnection {
              * Any and all tag values may be null, so account for that when
              * checking against them.
              */
-            LinkedHashMap<String, String> badges = Helper.parseBadges(tags.get("badges"));
+            Map<String, String> badges = Helper.parseBadges(tags.get("badges"));
+            user.setTwitchBadges(badges);
             
             // Whether anything in the user changed to warrant an update
             boolean changed = false;

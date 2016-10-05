@@ -1,9 +1,10 @@
 
 package chatty.util.ffz;
 
-import chatty.Usericon;
+import chatty.util.api.usericons.Usericon;
 import chatty.util.JSONUtil;
 import chatty.util.api.Emoticon;
+import chatty.util.api.usericons.UsericonFactory;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.logging.Logger;
@@ -39,8 +40,8 @@ public class FrankerFaceZParsing {
             if (modBadgeUrl == null) {
                 return null;
             }
-            return Usericon.createTwitchLikeIcon(Usericon.Type.MOD,
-                            roomId, modBadgeUrl, Usericon.SOURCE_FFZ);
+            return UsericonFactory.createTwitchLikeIcon(Usericon.Type.MOD,
+                            roomId, modBadgeUrl, Usericon.SOURCE_FFZ, "Moderator (FFZ Icon)");
         } catch (ParseException | ClassCastException | NullPointerException ex) {
             
         }

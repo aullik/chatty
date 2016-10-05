@@ -2,10 +2,12 @@
 package chatty.gui.components.settings;
 
 import chatty.Chatty;
-import chatty.Usericon;
-import chatty.Usericon.Type;
+import chatty.util.api.usericons.Usericon;
+import chatty.util.api.usericons.Usericon.Type;
 import chatty.gui.GuiUtil;
+import chatty.gui.RegexDocumentFilter;
 import chatty.util.MiscUtil;
+import chatty.util.api.usericons.UsericonFactory;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
@@ -30,6 +32,7 @@ import javax.swing.JTextField;
 import javax.swing.JToggleButton;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.text.PlainDocument;
 
 /**
  * Table to add/remove/edit usericons (badges).
@@ -59,11 +62,13 @@ class UsericonEditor extends TableEditor<Usericon> {
         typeNames.put(Usericon.Type.MOD, "Moderator");
         typeNames.put(Usericon.Type.SUB, "Subscriber");
         typeNames.put(Usericon.Type.TURBO, "Turbo");
+        typeNames.put(Usericon.Type.PRIME, "Prime");
         typeNames.put(Usericon.Type.ADMIN, "Admin");
         typeNames.put(Usericon.Type.STAFF, "Staff");
         typeNames.put(Usericon.Type.BROADCASTER, "Broadcaster");
         typeNames.put(Usericon.Type.GLOBAL_MOD, "Global Moderator");
         typeNames.put(Usericon.Type.BOT, "Bot");
+        typeNames.put(Usericon.Type.TWITCH, "Other Twitch");
     }
     
     private static String getTypeName(Type type) {
@@ -84,7 +89,13 @@ class UsericonEditor extends TableEditor<Usericon> {
         public Object getValueAt(int rowIndex, int columnIndex) {
             Usericon icon = get(rowIndex);
             if (columnIndex == 0) {
-                return getTypeName(icon.type);
+                if (icon.type == Usericon.Type.TWITCH) {
+                    return "["+icon.getIdAndVersion()+"]";
+                } else if (!icon.badgeType.isEmpty()) {
+                    return getTypeName(icon.type)+" ["+icon.badgeType+"]";
+                } else {
+                    return getTypeName(icon.type);
+                }
             } else if (columnIndex == 1) {
                 return icon;
             } else if (columnIndex == 2) {
@@ -140,7 +151,9 @@ class UsericonEditor extends TableEditor<Usericon> {
             } else {
                 setText(icon.restrictionValue
                         +(icon.first ? " (first)" : "")
-                        +(icon.stop ? " (stop)" : ""));
+                        +(icon.stop ? " (stop)" : "")
+                        +(!icon.badgeTypeRestriction.isEmpty() ? " ["+icon.badgeTypeRestriction.toString()+"]" : "")
+                );
                 setForeground(defaultColor);
             }
         }
@@ -164,6 +177,9 @@ class UsericonEditor extends TableEditor<Usericon> {
             if (icon.fileName != null && icon.fileName.startsWith("$")) {
                 setIcon(null);
                 setText(icon.fileName.substring(1));
+            } else if (icon.removeBadge) {
+                setIcon(null);
+                setText("No image");
             } else {
                 setIcon(icon.image);
                 setText(null);
@@ -209,10 +225,11 @@ class UsericonEditor extends TableEditor<Usericon> {
         
         private final JDialog dialog;
         
-        private final JComboBox<String> fileName;
+        private final GenericComboSetting<String> fileName;
         private final GenericComboSetting<Type> type;
-        private final JTextField id = new JTextField();
+        private final JTextField restriction = new JTextField();
         private final JTextField stream = new JTextField();
+        private final JTextField idVersion = new JTextField();
         
         private final JButton okButton = new JButton("Done");
         private final JButton cancelButton = new JButton("Cancel");
@@ -235,8 +252,22 @@ class UsericonEditor extends TableEditor<Usericon> {
             
             type = new GenericComboSetting<>(typeNames);
             type.setToolTipText("Choosing a type other than Addon replaces the corresponding default icon.");
+            type.addActionListener(new ActionListener() {
+
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    if (type.getSettingValue() == Usericon.Type.TWITCH) {
+                        idVersion.setEnabled(true);
+                    } else {
+                        idVersion.setEnabled(false);
+                        idVersion.setText(null);
+                    }
+                }
+            });
             
-            fileName = new JComboBox<>();
+            //((PlainDocument)idVersion.getDocument()).setDocumentFilter(new RegexDocumentFilter("\\s+"));
+            
+            fileName = new GenericComboSetting<>(new String[0]);
             fileName.setEditable(true);
             fileName.addActionListener(new ActionListener() {
 
@@ -244,9 +275,7 @@ class UsericonEditor extends TableEditor<Usericon> {
                 public void actionPerformed(ActionEvent e) {
                     //System.out.println(e);
                     if (e.getActionCommand().equals("comboBoxChanged")) {
-                        createIcon(true);
-                        updatePreview();
-                        updateOkButton();
+                        update();
                     }
                 }
             });
@@ -357,13 +386,18 @@ class UsericonEditor extends TableEditor<Usericon> {
             gbc = GuiUtil.makeGbc(1, 1, 2, 1, GridBagConstraints.WEST);
             gbc.fill = GridBagConstraints.HORIZONTAL;
             panel.add(type, gbc);
+            
+            panel.add(new JLabel("ID/Version:"), GuiUtil.makeGbc(0, 2, 1, 1));
+            gbc = GuiUtil.makeGbc(1, 2, 2, 1, GridBagConstraints.WEST);
+            gbc.fill = GridBagConstraints.HORIZONTAL;
+            panel.add(idVersion, gbc);
 
             panel.add(new JLabel("Restriction:"), GuiUtil.makeGbc(0, 3, 1, 1));
             
             gbc = GuiUtil.makeGbc(1, 3, 2, 1, GridBagConstraints.WEST);
             gbc.fill = GridBagConstraints.HORIZONTAL;
             //id.setColumns(14);
-            panel.add(id, gbc);
+            panel.add(restriction, gbc);
             
             panel.add(new JLabel("Channel:"), GuiUtil.makeGbc(0, 4, 1, 1));
             
@@ -400,12 +434,18 @@ class UsericonEditor extends TableEditor<Usericon> {
             return panel;
         }
         
+        private void update() {
+            createIcon(true);
+            updatePreview();
+            updateOkButton();
+        }
+        
         private void createIcon(boolean preview) {
-            String file = (String)fileName.getSelectedItem();
+            String file = (String)fileName.getSettingValue();
             if (preview) {
-                currentIcon = Usericon.createCustomIcon(Type.UNDEFINED, null, file, null);
+                currentIcon = UsericonFactory.createCustomIcon(Type.UNDEFINED, null, null, file, null);
             } else if (type.getSettingValue() != null) {
-                currentIcon = Usericon.createCustomIcon(type.getSettingValue(), id.getText(), file, stream.getText());
+                currentIcon = UsericonFactory.createCustomIcon(type.getSettingValue(), idVersion.getText(), restriction.getText(), file, stream.getText());
             } else {
                 currentIcon = null;
             }
@@ -423,6 +463,8 @@ class UsericonEditor extends TableEditor<Usericon> {
             preview.setText(null);
             preview.setIcon(null);
             if (currentIcon == null) {
+                preview.setText("No image.");
+            } else if (currentIcon.removeBadge) {
                 preview.setText("No image.");
             } else if (currentIcon.fileName.startsWith("$")) {
                 preview.setText("Ref image.");
@@ -449,19 +491,21 @@ class UsericonEditor extends TableEditor<Usericon> {
                 dialog.setTitle("Add item");
             }
             if (preset != null) {
-                id.setText(preset.restriction);
+                restriction.setText(preset.restriction);
                 type.setSettingValue(preset.type);
-                fileName.setSelectedItem(preset.fileName);
+                idVersion.setText(preset.getIdAndVersion());
+                fileName.setSettingValue(preset.fileName);
                 stream.setText(preset.channelRestriction);
                 currentIcon = preset;
             } else {
-                id.setText(null);
+                restriction.setText(null);
                 type.setSelectedIndex(0);
-                fileName.setSelectedItem(null);
+                idVersion.setText(null);
+                fileName.setSelectedIndex(0);
                 stream.setText(null);
                 currentIcon = null;
             }
-            updatePreview();
+            update();
             
             save = false;
             
@@ -499,8 +543,9 @@ class UsericonEditor extends TableEditor<Usericon> {
                 
                 String selected = (String) fileName.getSelectedItem();
                 fileName.removeAllItems();
+                fileName.add("", "<no image>");
                 for (String item : fileNames) {
-                    fileName.addItem(item);
+                    fileName.add(item);
                 }
                 fileName.setSelectedItem(selected);
             }

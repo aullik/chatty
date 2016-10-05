@@ -28,7 +28,7 @@ import chatty.User;
 import chatty.Irc;
 import chatty.StatusHistory;
 import chatty.UsercolorItem;
-import chatty.Usericon;
+import chatty.util.api.usericons.Usericon;
 import chatty.WhisperManager;
 import chatty.gui.components.AddressbookDialog;
 import chatty.gui.components.ChatRulesDialog;
@@ -1781,8 +1781,15 @@ public class MainGui extends JFrame implements Runnable {
                 UrlOpener.openUrlPrompt(getActiveWindow(), url, true);
             }
         }
-        
-        
+
+        @Override
+        public void usericonMenuItemClicked(ActionEvent e, Usericon usericon) {
+            if (e.getActionCommand().equals("usericonUrl")) {
+                if (!usericon.metaUrl.isEmpty()) {
+                    UrlOpener.openUrlPrompt(MainGui.this, usericon.metaUrl);
+                }
+            }
+        }
         
     }
 
@@ -1826,6 +1833,13 @@ public class MainGui extends JFrame implements Runnable {
         @Override
         public void emoteClicked(Emoticon emote, MouseEvent e) {
             openEmotesDialogEmoteDetails(emote);
+        }
+
+        @Override
+        public void usericonClicked(Usericon usericon, MouseEvent e) {
+            if (!usericon.metaUrl.isEmpty()) {
+                UrlOpener.openUrlPrompt(MainGui.this, usericon.metaUrl);
+            }
         }
     }
     
@@ -2851,16 +2865,12 @@ public class MainGui extends JFrame implements Runnable {
      * @param line 
      */
     public void printDebug(final String line) {
-        if (SwingUtilities.isEventDispatchThread()) {
-            debugWindow.printLine(line);
-        } else {
-            SwingUtilities.invokeLater(new Runnable() {
-                @Override
-                public void run() {
-                    debugWindow.printLine(line);
-                }
-            });
-        }
+        SwingUtilities.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                debugWindow.printLine(line);
+            }
+        });
     }
     
     public void printDebugFFZ(final String line) {
